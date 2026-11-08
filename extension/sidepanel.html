@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#B52641" />
+  <title>QuizCrate AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span>Q</span><i></i></div>
+        <div class="brand-copy"><strong>QuizCrate <em>AI</em></strong><small>YOUR STUDY COMPANION</small></div>
+      </div>
+      <button id="settings-button" class="icon-btn" aria-label="Open settings" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.86l.08.08-2 2-.08-.08a1.7 1.7 0 0 0-1.86-.34 1.7 1.7 0 0 0-1 1.55V21h-2.82v-.13a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.86.34l-.08.08-2-2 .08-.08A1.7 1.7 0 0 0 7.54 15a1.7 1.7 0 0 0-1.55-1H5v-2.82h.99a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.86l-.08-.08 2-2 .08.08a1.7 1.7 0 0 0 1.86.34 1.7 1.7 0 0 0 1-1.55V5h2.82v.11a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.86-.34l.08-.08 2 2-.08.08A1.7 1.7 0 0 0 19.4 10.2a1.7 1.7 0 0 0 1.55 1H21V14h-.05A1.7 1.7 0 0 0 19.4 15Z" transform="translate(-1 -1) scale(1.04)"/></svg>
+      </button>
+    </header>
+    <div class="app-scroll" id="app-scroll">
+      <div id="flash" class="flash hidden" role="alert"></div>
+      <main id="screen" aria-live="polite"></main>
+      <footer class="footer"><span>✦ Built for better study sessions</span><span>v0.1 · MVP</span></footer>
+    </div>
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button id="nav-home" class="nav-link active" data-nav="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-7 9 7v10H3z"/><path d="M9 20v-7h6v7"/></svg><span>Home</span></button>
+      <button id="nav-history" class="nav-link" data-nav="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>My quizzes</span></button>
+      <button id="nav-settings" class="nav-link" data-nav="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2" fill="white"/><circle cx="16" cy="12" r="2" fill="white"/><circle cx="10" cy="18" r="2" fill="white"/></svg><span>Settings</span></button>
+    </nav>
+  </div>
+  <script src="demo-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
