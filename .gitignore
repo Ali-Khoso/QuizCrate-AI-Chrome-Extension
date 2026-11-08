@@ -1,0 +1,17 @@
+# secrets / user data
+.env
+.env.*
+!.env.example
+*.token
+*credentials*.json
+# python
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+# packaging
+*.zip
