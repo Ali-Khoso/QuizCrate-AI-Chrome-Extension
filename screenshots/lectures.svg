@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="900" viewBox="0 0 410 900">
+<rect width="410" height="900" fill="#fffaf9"/>
+<rect width="410" height="78" fill="#ffffff"/>
+<path d="M0 78H410" stroke="#f0e1e5"/>
+<rect x="20" y="19" width="39" height="39" rx="12" fill="#b82947"/>
+<text x="31" y="47" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#fff">Q</text>
+<text x="72" y="40" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#29202a">QuizCrate <tspan fill="#b82947">AI</tspan></text>
+<text x="73" y="55" font-family="Arial,sans-serif" font-size="9" fill="#a28a95" letter-spacing="1.4">YOUR STUDY COMPANION</text>
+<circle cx="371" cy="38" r="17" fill="#fff0f3"/><text x="364" y="44" font-size="20" fill="#a72a46">⚙</text>
+<text x="21" y="118" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ba2848">‹ All courses</text>
+<text x="22" y="146" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#b72847">SELECT YOUR MATERIAL</text>
+<text x="22" y="181" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#30242e">Analysis of</text>
+<text x="22" y="215" font-family="Arial,sans-serif" font-size="29" font-weight="700" fill="#30242e">Algorithms</text>
+<text x="22" y="244" font-family="Arial,sans-serif" font-size="12" font-weight="400" fill="#8f7f88">Choose one or more lectures to study.</text>
+<text x="22" y="289" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#32242e">Available lectures</text>
+<text x="290" y="289" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#b72847">Select all</text>
+<rect x="21" y="308" width="368" height="64" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="38" y="330" width="18" height="18" rx="4" fill="#b92847" stroke="#dba4b2"/>
+<text x="41" y="344" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">✓</text>
+<text x="71" y="331" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#b42a47">LECTURE 01  ·  SORTING</text>
+<text x="71" y="351" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2b2430">Introduction to Algorithms</text><rect x="21" y="380" width="368" height="64" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="38" y="402" width="18" height="18" rx="4" fill="#b92847" stroke="#dba4b2"/>
+<text x="41" y="416" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">✓</text>
+<text x="71" y="403" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#b42a47">LECTURE 02  ·  SORTING</text>
+<text x="71" y="423" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2b2430">Merge Sort</text><rect x="21" y="452" width="368" height="64" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="38" y="474" width="18" height="18" rx="4" fill="#b92847" stroke="#dba4b2"/>
+<text x="41" y="488" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#fff">✓</text>
+<text x="71" y="475" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#b42a47">LECTURE 03  ·  SORTING</text>
+<text x="71" y="495" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2b2430">Quick Sort</text><rect x="21" y="524" width="368" height="64" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="38" y="546" width="18" height="18" rx="4" fill="#fff" stroke="#dba4b2"/>
+
+<text x="71" y="547" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#b42a47">LECTURE 04  ·  SORTING</text>
+<text x="71" y="567" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2b2430">Master Theorem</text><rect x="21" y="596" width="368" height="64" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="38" y="618" width="18" height="18" rx="4" fill="#fff" stroke="#dba4b2"/>
+
+<text x="71" y="619" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#b42a47">LECTURE 05  ·  SORTING</text>
+<text x="71" y="639" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#2b2430">Selection Sort</text>
+<rect x="21" y="685" width="368" height="128" rx="16" fill="#fff" stroke="#f0e1e5"/><text x="38" y="707" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#b42a47">QUIZ PREFERENCES</text>
+<text x="38" y="732" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#362630">Questions</text>
+<rect x="38" y="742" width="69" height="30" rx="8" fill="#bb2843"/><text x="64" y="762" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#fff">5</text><rect x="117" y="742" width="69" height="30" rx="8" fill="#fff0f3"/><text x="143" y="762" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ae8290">10</text><rect x="196" y="742" width="69" height="30" rx="8" fill="#fff0f3"/><text x="222" y="762" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ae8290">15</text><rect x="275" y="742" width="69" height="30" rx="8" fill="#fff0f3"/><text x="301" y="762" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ae8290">20</text>
+<text x="38" y="795" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#866978">Difficulty: Medium</text>
+<rect x="0" y="833" width="410" height="67" fill="#fff"/><path d="M0 833H410" stroke="#f0e1e5"/>
+<g font-family="Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+<text x="69" y="860" fill="#b82947">⌂</text><text x="69" y="879" fill="#b82947">Home</text>
+<text x="204" y="860" fill="#a28b94">◷</text><text x="204" y="879" fill="#a28b94">My quizzes</text>
+<text x="341" y="860" fill="#a28b94">☷</text><text x="341" y="879" fill="#a28b94">Settings</text>
+</g></svg>

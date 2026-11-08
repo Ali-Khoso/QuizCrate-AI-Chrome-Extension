@@ -6,7 +6,19 @@ A **ruby-red / rose** Chrome Manifest V3 extension that opens in Chrome's side p
 
 > **Status:** Working local MVP and interactive demo. Google OAuth and Gemini integration are implemented but **not configured or live-tested with a real account** in this package. You must supply your own Google Cloud OAuth client ID and Gemini API key. The project is not installed or published to the Chrome Web Store.
 
-![Red QuizCrate AI UI](screenshots/home.png)
+![QuizCrate AI red theme preview](screenshots/home.svg)
+
+### Interface previews
+
+These SVG illustrations show the red-themed extension flow. The local ZIP package contains the original PNG screenshots from demo testing.
+
+| Courses | Select lectures |
+|---|---|
+| ![Course picker](screenshots/courses.svg) | ![Lecture selector](screenshots/lectures.svg) |
+
+| Practice quiz | Quiz results |
+|---|---|
+| ![Quiz interface](screenshots/quiz.svg) | ![Review results](screenshots/results.svg) |
 
 ## What's included
 
@@ -37,7 +49,7 @@ QuizCrate-AI/
 │   ├── requirements.txt
 │   ├── .env.example
 │   └── tests/test_main.py
-├── screenshots/            # Screenshots of working local demo
+├── screenshots/            # Red-theme UI preview illustrations
 ├── PRIVACY.md
 ├── QUESTIONS_AND_ANSWERS.md
 └── README.md

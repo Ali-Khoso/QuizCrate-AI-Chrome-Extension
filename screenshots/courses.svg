@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="900" viewBox="0 0 410 900">
+<rect width="410" height="900" fill="#fffaf9"/>
+<rect width="410" height="78" fill="#ffffff"/>
+<path d="M0 78H410" stroke="#f0e1e5"/>
+<rect x="20" y="19" width="39" height="39" rx="12" fill="#b82947"/>
+<text x="31" y="47" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#fff">Q</text>
+<text x="72" y="40" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#29202a">QuizCrate <tspan fill="#b82947">AI</tspan></text>
+<text x="73" y="55" font-family="Arial,sans-serif" font-size="9" fill="#a28a95" letter-spacing="1.4">YOUR STUDY COMPANION</text>
+<circle cx="371" cy="38" r="17" fill="#fff0f3"/><text x="364" y="44" font-size="20" fill="#a72a46">⚙</text>
+<text x="22" y="126" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#be2d4b">DEMO CLASSROOM</text>
+<text x="22" y="166" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#29202a">Choose your</text><text x="22" y="203" font-family="Arial,sans-serif" font-size="31" font-weight="700" fill="#bd2c4b">course.</text>
+<text x="22" y="231" font-family="Arial,sans-serif" font-size="14" font-weight="400" fill="#8a7781">Where are we studying today?</text>
+<rect x="21" y="256" width="369" height="51" rx="13" fill="#fff" stroke="#f0dce1"/>
+<text x="40" y="287" font-family="Arial,sans-serif" font-size="13" font-weight="400" fill="#a9929c">⌕  Search your courses...</text>
+<text x="23" y="352" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#2d2530">Your subjects</text>
+<rect x="21" y="382" width="368" height="93" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="37" y="395" width="68" height="66" rx="13" fill="#ffe1e8"/>
+<text x="59" y="440" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#bd2b4a">A</text><text x="121" y="424" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#2c2330">Analysis of Algorithms</text>
+<text x="121" y="447" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#9e8993">Computer Science · Semester 5</text><text x="360" y="438" font-family="Arial,sans-serif" font-size="24" font-weight="400" fill="#cdafba">›</text><rect x="21" y="488" width="368" height="93" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="37" y="501" width="68" height="66" rx="13" fill="#fff0d9"/>
+<text x="59" y="546" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#aa783a">C</text><text x="121" y="530" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#2c2330">Compiler Construction</text>
+<text x="121" y="553" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#9e8993">Computer Science · Semester 5</text><text x="360" y="544" font-family="Arial,sans-serif" font-size="24" font-weight="400" fill="#cdafba">›</text><rect x="21" y="594" width="368" height="93" rx="16" fill="#fff" stroke="#f0e1e5"/><rect x="37" y="607" width="68" height="66" rx="13" fill="#eae2fa"/>
+<text x="59" y="652" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#7f56ae">W</text><text x="121" y="636" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#2c2330">Web Engineering</text>
+<text x="121" y="659" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#9e8993">Computer Science · Semester 5</text><text x="360" y="650" font-family="Arial,sans-serif" font-size="24" font-weight="400" fill="#cdafba">›</text>
+<rect x="22" y="725" width="365" height="70" rx="14" fill="#fff0f3" stroke="#f2d5dc"/>
+<text x="37" y="750" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#b52847">Demo mode</text>
+<text x="37" y="773" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#816570">Try sample lectures or sign in for your classes.</text>
+<rect x="0" y="833" width="410" height="67" fill="#fff"/><path d="M0 833H410" stroke="#f0e1e5"/>
+<g font-family="Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+<text x="69" y="860" fill="#b82947">⌂</text><text x="69" y="879" fill="#b82947">Home</text>
+<text x="204" y="860" fill="#a28b94">◷</text><text x="204" y="879" fill="#a28b94">My quizzes</text>
+<text x="341" y="860" fill="#a28b94">☷</text><text x="341" y="879" fill="#a28b94">Settings</text>
+</g></svg>

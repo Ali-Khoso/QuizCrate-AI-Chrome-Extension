@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="900" viewBox="0 0 410 900">
+<rect width="410" height="900" fill="#fffaf9"/>
+<rect width="410" height="78" fill="#ffffff"/>
+<path d="M0 78H410" stroke="#f0e1e5"/>
+<rect x="20" y="19" width="39" height="39" rx="12" fill="#b82947"/>
+<text x="31" y="47" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#fff">Q</text>
+<text x="72" y="40" font-family="Arial,sans-serif" font-size="19" font-weight="bold" fill="#29202a">QuizCrate <tspan fill="#b82947">AI</tspan></text>
+<text x="73" y="55" font-family="Arial,sans-serif" font-size="9" fill="#a28a95" letter-spacing="1.4">YOUR STUDY COMPANION</text>
+<circle cx="371" cy="38" r="17" fill="#fff0f3"/><text x="364" y="44" font-size="20" fill="#a72a46">⚙</text>
+<defs><linearGradient id="hero" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#9d2141"/><stop offset="1" stop-color="#dd4c66"/></linearGradient></defs>
+<rect x="20" y="103" width="370" height="360" rx="22" fill="url(#hero)"/>
+<rect x="41" y="126" width="175" height="26" rx="13" fill="#ffffff30"/>
+<text x="51" y="143" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">✦  YOUR AI STUDY TOOL</text>
+<text x="42" y="214" font-family="Arial,sans-serif" font-size="39" font-weight="700" fill="#fff">From lectures</text><text x="42" y="257" font-family="Arial,sans-serif" font-size="39" font-weight="700" fill="#ffcedb">to quiz-ready.</text>
+<text x="42" y="290" font-family="Arial,sans-serif" font-size="13" font-weight="400" fill="#ffe1e7">Pick your Google Classroom notes.</text>
+<text x="42" y="312" font-family="Arial,sans-serif" font-size="13" font-weight="400" fill="#ffe1e7">Generate quizzes. Study smarter.</text>
+<rect x="257" y="332" width="80" height="91" rx="10" transform="rotate(12 297 377)" fill="#f6ccd8"/>
+<rect x="273" y="333" width="81" height="92" rx="10" transform="rotate(-4 313 379)" fill="white"/>
+<text x="296" y="373" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#b12b49">Q.</text>
+<rect x="288" y="385" width="47" height="8" rx="4" fill="#ead7de"/><rect x="288" y="397" width="32" height="8" rx="4" fill="#ead7de"/>
+<text x="42" y="443" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#ffe1e7">NO MANUAL DOWNLOADS  ✧  CLASSROOM</text>
+<text x="23" y="509" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#b82947">GET STARTED</text>
+<text x="359" y="509" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#bca0aa">01—03</text>
+<rect x="22" y="534" width="44" height="44" rx="12" fill="#fff0f3"/><text x="32" y="561" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ba2949">01</text><text x="80" y="554" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#32242e">Connect your Classroom</text><text x="80" y="573" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#8d7e88">Read-only access to Google</text><rect x="22" y="600" width="44" height="44" rx="12" fill="#fff0f3"/><text x="32" y="627" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ba2949">02</text><text x="80" y="620" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#32242e">Select your lectures</text><text x="80" y="639" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#8d7e88">Choose exactly what to study</text><rect x="22" y="666" width="44" height="44" rx="12" fill="#fff0f3"/><text x="32" y="693" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#ba2949">03</text><text x="80" y="686" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#32242e">Generate and practice</text><text x="80" y="705" font-family="Arial,sans-serif" font-size="11" font-weight="400" fill="#8d7e88">AI quizzes, explanations and score</text>
+<rect x="22" y="748" width="365" height="54" rx="14" fill="#bb2843"/>
+<text x="91" y="780" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">Connect Google Classroom  →</text>
+<rect x="0" y="833" width="410" height="67" fill="#fff"/><path d="M0 833H410" stroke="#f0e1e5"/>
+<g font-family="Arial,sans-serif" font-size="12" font-weight="bold" text-anchor="middle">
+<text x="69" y="860" fill="#b82947">⌂</text><text x="69" y="879" fill="#b82947">Home</text>
+<text x="204" y="860" fill="#a28b94">◷</text><text x="204" y="879" fill="#a28b94">My quizzes</text>
+<text x="341" y="860" fill="#a28b94">☷</text><text x="341" y="879" fill="#a28b94">Settings</text>
+</g></svg>
