@@ -169,7 +169,8 @@ async function paged(url,key,token) {
   do{
     const data=await googleJson(url+(next?(url.includes('?')?'&':'?')+'pageToken='+encodeURIComponent(next):''),token);
     items.push(...(data[key]||[])); next=data.nextPageToken||'';
-  }while(next&&++pages<8);
+  }while(next&&++pages<50);
+  if(next)throw Error('This course has more Classroom pages than can be loaded safely. Narrow your selection or contact support.');
   return items;
 }
 async function connect() {
@@ -238,16 +239,41 @@ async function sourceData(lectures){
     const source={title:lecture.title,description:lecture.description||'',files:[]};
     for(const material of lecture.materials||[]){
       if(material.driveFile?.driveFile?.id){
-        if(++count>MAX_FILES){skipped.push('Maximum 12 attachments allowed.');continue;}
+        if(count>=MAX_FILES){skipped.push('Maximum 12 readable attachments per quiz.');continue;}
         try{
           const file=await loadDriveFile(material.driveFile.driveFile,token);
-          if(file.skipped)skipped.push(file.skipped);else source.files.push(file);
+          if(file.skipped)skipped.push(file.skipped);
+          else {source.files.push(file);count++;}
         }catch(e){skipped.push((material.driveFile.driveFile.title||'Attachment')+': '+e.message);}
       }else if(material.link||material.youtubeVideo)skipped.push(lecture.title+': external link/video not automatically parsed');
     }
     sources.push(source);
   }
   return {sources,skipped};
+}
+function validateQuizResponse(body, selectedTitles, count) {
+  if(!body||!Array.isArray(body.questions)||body.questions.length===0)
+    throw Error('The AI server returned an empty or invalid quiz. Please try again.');
+  const allowed=new Set(selectedTitles);
+  const valid=[];
+  const seen=new Set();
+  for(const q of body.questions){
+    if(!q||typeof q.question!=='string'||q.question.trim().length<12
+      ||!Array.isArray(q.options)||q.options.length!==4
+      ||q.options.some(x=>typeof x!=='string'||!x.trim())
+      ||new Set(q.options.map(x=>x.trim().toLowerCase())).size!==4
+      ||!Number.isInteger(q.answerIndex)||q.answerIndex<0||q.answerIndex>3
+      ||typeof q.explanation!=='string'||q.explanation.trim().length<15
+      ||typeof q.sourceTitle!=='string'||!allowed.has(q.sourceTitle))
+      throw Error('The AI server returned a malformed or uncited question. Please generate a new quiz.');
+    const id=q.question.trim().toLowerCase().replace(/\s+/g,' ');
+    if(seen.has(id))continue;
+    seen.add(id);
+    valid.push(q);
+    if(valid.length===count)break;
+  }
+  if(!valid.length)throw Error('No usable quiz questions were returned.');
+  return valid;
 }
 async function generate(){
   if(!state.selected.size||state.busy)return;
@@ -267,16 +293,18 @@ async function generate(){
     const {sources,skipped}=await sourceData(picked);
     if(!sources.some(s=>s.description.trim().length>150||s.files.some(f=>f.base64||f.text?.trim())))
       throw Error('No readable lecture notes found. Select lectures with Docs, Slides, PDF, DOCX, PPTX or substantial descriptions.');
+    const payload=JSON.stringify({sources,question_count:state.questionCount,difficulty:state.difficulty});
+    if(new TextEncoder().encode(payload).byteLength>22*1024*1024)
+      throw Error('Selected lecture files exceed the 22 MB quiz request limit. Select fewer or smaller attachments.');
     const response=await fetch(BACKEND+'/api/generate',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({sources,question_count:state.questionCount,difficulty:state.difficulty})
+      method:'POST',headers:{'Content-Type':'application/json'},body:payload
     });
     const body=await response.json().catch(()=>({}));
     if(!response.ok)throw Error(body.detail||`Quiz generation failed (${response.status}).`);
-    if(!Array.isArray(body.questions)||!body.questions.length)throw Error('No questions were returned.');
-    state.questions=body.questions;state.answers=Array(body.questions.length).fill(null);state.current=0;
+    state.questions=validateQuizResponse(body,picked.map(x=>x.title),state.questionCount);
+    state.answers=Array(state.questions.length).fill(null);state.current=0;
     navigate('quiz');
-    if(skipped.length)notice(`${skipped.length} unsupported or inaccessible attachments were skipped.`,'warning');
+    if(skipped.length)notice(`Skipped ${skipped.length} attachments: ${skipped.slice(0,2).join('; ')}${skipped.length>2?'…':''}`,'warning');
   }catch(e){notice(e instanceof TypeError?'Cannot reach FastAPI at 127.0.0.1:8787. Start it following README.md.':e.message);}
   finally{state.busy=false;render();}
 }
@@ -330,4 +358,4 @@ $('screen').addEventListener('input',event=>{
 });
 $('settings-button').addEventListener('click',()=>navigate('settings'));
 document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>navigate(btn.dataset.nav==='home'?(state.mode?'courses':'welcome'):btn.dataset.nav)));
-(async()=>{state.history=(await store.get('quizcrate_history'))||[];render();})().catch(e=>notice(e.message));
+(async()=>{const previous=await store.get('quizcrate_history');state.history=Array.isArray(previous)?previous:[];render();})().catch(e=>notice(e.message));
