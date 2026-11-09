@@ -140,12 +140,35 @@ See [PRIVACY.md](PRIVACY.md) for a draft disclosure, **not** a claim of complete
 
 ## Test suite
 
+Run these commands from the cloned project root:
+
 ```powershell
-cd QuizCrate-AI\server
+cd server
+python -m pip install -r requirements.txt
 python -m pytest -q
+cd ..
+node --test extension/tests/*.test.cjs
 ```
 
-Tests cover extraction of PDF/DOCX/PPTX/plain text, insufficient-input handling, and quiz schema validation. The UI flow has been run in a browser test harness using demo content. Live Google sign-in and real Gemini responses require your own credentials and are **not** tested here.
+The **12 Python tests** cover lecture extraction, schema validation, missing or oversized content, accurate configuration status, and mocked Gemini-response filtering. The **8 Node tests** cover quiz response validation, source attribution, duplicate answers, course pagination, attachment limits, sanitization of saved history, and the demo course-to-results flow. Both suites run through GitHub Actions for every push and pull request.
+
+The tests use fixtures and mocks; **they do not prove that your real university Google account, Drive permissions, OAuth consent, or live Gemini API access will succeed.** Test those separately using a dedicated Google Cloud project and your own authorized account.
+
+## Release readiness
+
+| Area | Current status |
+| --- | --- |
+| Red-themed Chrome MV3 side panel | Implemented |
+| Interactive offline demo and scoring | Implemented; automated flow test |
+| Google Classroom list and Drive reading | Implemented, but not real-account tested |
+| PDF / DOCX / PPTX / Docs / Slides text extraction | Implemented, automated parser tests where applicable |
+| AI quiz generation | Implemented; Gemini key, enabled API, and quota needed |
+| Oversized lecture selection | Frontend and backend enforce the 22 MB request ceiling |
+| Invalid or repeated AI questions | Validated and filtered; generation can still return fewer questions |
+| Scanned PDF / images / YouTube / web links | Not supported for automatic ingestion |
+| Public Chrome Web Store publication | **Not ready:** OAuth verification, privacy review, secure hosted backend, and live tests needed |
+
+**Important:** Read-only Google permissions do not guarantee access to every attachment. If Google Drive denies a selected file, QuizCrate skips it and shows a warning. Do not remove the limitations or privacy disclosure before publishing.
 
 ## Troubleshooting
 
