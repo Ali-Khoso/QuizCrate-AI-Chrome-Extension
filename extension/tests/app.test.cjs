@@ -25,6 +25,9 @@ function loadApp(fetchImpl = async () => { throw new Error('unexpected network r
     Date, URL, Set, Number, Array, Promise,
     localStorage: { getItem() { return null; }, setItem() {} },
   });
+  vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'demo-data.js'), 'utf8'), context, {
+    filename: 'demo-data.js',
+  });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'app.js'), 'utf8'), context, {
     filename: 'app.js',
   });
@@ -122,4 +125,19 @@ test('corrupt or untrusted local history cannot render HTML into the result list
   assert.equal(html.includes('<script>'), false);
   assert.equal(html.includes('&lt;img'), true);
   assert.equal(html.includes('Bad record'), false);
+});
+
+
+test('demo flow: open course, select lecture, answer quiz and save results', async () => {
+  const context = loadApp();
+  vm.runInContext('enterDemo()', context);
+  await vm.runInContext("openCourse('demo-algorithms')", context);
+  vm.runInContext('state.selected.add(state.lectures[0].id)', context);
+  await vm.runInContext('generate()', context);
+  assert.ok(vm.runInContext('state.questions.length', context) > 0);
+  assert.equal(vm.runInContext('state.page', context), 'quiz');
+  vm.runInContext('state.answers=state.questions.map(q=>q.answerIndex)', context);
+  await vm.runInContext('finish()', context);
+  assert.equal(vm.runInContext('state.page', context), 'results');
+  assert.equal(vm.runInContext('state.history[0].score', context), 100);
 });
