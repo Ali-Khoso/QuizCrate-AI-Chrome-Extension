@@ -121,7 +121,9 @@ function resultsView() {
     ${button('Create another quiz'+iconStar,'back-lectures')}${button('Copy feedback template','feedback','outline')}`;
 }
 function historyView() {
-  const entries=state.history.map(x=>`<div class="history-card"><span class="history-mark">${x.score}%</span><div><strong>${escapeHTML(x.course)}</strong><small>${escapeHTML(x.date)} · ${x.correct}/${x.total} correct</small></div></div>`).join('');
+  const entries=state.history.filter(x=>x&&typeof x.course==='string'&&typeof x.date==='string'
+    &&Number.isFinite(x.score)&&Number.isFinite(x.correct)&&Number.isFinite(x.total))
+    .map(x=>`<div class="history-card"><span class="history-mark">${Math.max(0,Math.min(100,Math.round(x.score)))}%</span><div><strong>${escapeHTML(x.course)}</strong><small>${escapeHTML(x.date)} · ${Math.round(x.correct)}/${Math.round(x.total)} correct</small></div></div>`).join('');
   return `${heading('MY PROGRESS','Quiz <span class="accent">history.</span>','Your results stay saved in this browser.')}
     ${entries||'<div class="empty-state"><strong>No quizzes yet.</strong><p>Complete a practice quiz to see your results here.</p></div>'}
     ${button('Study a subject'+iconArrow,'home')}`;
