@@ -39,10 +39,21 @@ app.add_middleware(
 @app.middleware("http")
 async def limit_body(request: Request, call_next):
     if request.url.path == "/api/generate":
-        declared = int(request.headers.get("content-length", "0") or "0")
-        if declared > MAX_PAYLOAD_BYTES:
+        raw_length = request.headers.get("content-length")
+        if raw_length is not None:
+            try:
+                declared = int(raw_length)
+            except ValueError:
+                return JSONResponse({"detail": "Invalid Content-Length header."}, status_code=400)
+            if declared < 0:
+                return JSONResponse({"detail": "Invalid Content-Length header."}, status_code=400)
+            if declared > MAX_PAYLOAD_BYTES:
+                return JSONResponse({"detail": "Selected files exceed the 22 MB request limit. Choose fewer lectures."}, status_code=413)
+        # Verify actual bytes as well: chunked requests and inaccurate headers must not bypass the limit.
+        body = await request.body()
+        if len(body) > MAX_PAYLOAD_BYTES:
             return JSONResponse({"detail": "Selected files exceed the 22 MB request limit. Choose fewer lectures."}, status_code=413)
-        # Local development server; avoid ever retaining user content in logs.
+        # Avoid logging selected lecture content.
     return await call_next(request)
 
 
@@ -234,7 +245,16 @@ async def ask_gemini(context: str, names: list[str], count: int, difficulty: str
     except (ValueError, KeyError, IndexError, ValidationError) as exc:
         raise HTTPException(status_code=502, detail="The AI response did not contain a valid multiple-choice quiz. Please try again.") from exc
     allowed = set(names)
-    result.questions = [q for q in result.questions if q.sourceTitle in allowed][:count]
+    seen: set[str] = set()
+    distinct: list[QuizQuestion] = []
+    for question in result.questions:
+        fingerprint = " ".join(question.question.casefold().split())
+        if question.sourceTitle in allowed and fingerprint not in seen:
+            seen.add(fingerprint)
+            distinct.append(question)
+        if len(distinct) == count:
+            break
+    result.questions = distinct
     if not result.questions:
         raise HTTPException(status_code=502, detail="No quiz questions could be verified against the selected lecture titles.")
     return result
@@ -242,7 +262,8 @@ async def ask_gemini(context: str, names: list[str], count: int, difficulty: str
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "ai_configured": bool(os.getenv("GEMINI_API_KEY"))}
+    key = os.getenv("GEMINI_API_KEY", "").strip()
+    return {"status": "ok", "ai_configured": bool(key) and not key.startswith("replace_with_")}
 
 
 @app.post("/api/generate", response_model=QuizResponse)
