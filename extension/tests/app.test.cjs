@@ -109,3 +109,17 @@ test('an unsupported attachment does not consume a valid file slot', async () =>
   assert.equal(result.sources[0].files.length, 12);
   assert.equal(result.skipped.length, 2);
 });
+
+
+test('corrupt or untrusted local history cannot render HTML into the result list', () => {
+  const context = loadApp();
+  context.savedHistory = [
+    { course: '<img src=x onerror=alert(1)>', date: 'Today', score: 75, correct: 3, total: 4 },
+    { course: 'Bad record', date: 'Today', score: '<script>', correct: 0, total: 1 },
+  ];
+  const html = vm.runInContext('state.history=savedHistory;historyView()', context);
+  assert.equal(html.includes('<img'), false);
+  assert.equal(html.includes('<script>'), false);
+  assert.equal(html.includes('&lt;img'), true);
+  assert.equal(html.includes('Bad record'), false);
+});
